@@ -33,19 +33,14 @@ namespace AkkaApp
             ReadKey();
             WriteLine("Sending another StopMovieMessage");
             userActorRef.Tell(new StopMovieMessage());
-
-
-
+            
             // press any key to start shutdown of system
             ReadKey();
-
 
             // Tell actor system (and all child actors) to shutdown
             _movieStreamActorSystem.Terminate();
             // Wait for actor system to finish shutting down
-//            _movieStreamActorSystem.AwaitTermination();
             WriteLine("Actor system shutdown");
-
 
             // Press any key to stop console application
             ReadKey();

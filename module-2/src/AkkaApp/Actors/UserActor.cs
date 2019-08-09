@@ -16,7 +16,7 @@ namespace AkkaApp.Actors
             WriteLine("Creating a UserActor");
 
             Receive<PlayMovieMessage>(HandlePlayMovieMessage);
-            Receive<PlayMovieMessage>(message => StopPlayingCurrentMovie());
+            Receive<StopMovieMessage>(message => HandleStopMovieMessage());
         }
         
         private void HandlePlayMovieMessage(PlayMovieMessage message)
